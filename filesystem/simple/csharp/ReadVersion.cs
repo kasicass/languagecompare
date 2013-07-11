@@ -16,9 +16,9 @@ class ReadVersion
 	{
 		using (StreamReader sr = new StreamReader(fileName))
 		{
-			while (sr.Peek() >= 0)
+			string line;
+			while ((line = sr.ReadLine()) != null)
 			{
-				string line = sr.ReadLine();
 				if (line.StartsWith("Version="))
 				{
 					return line.Split('=')[1];
