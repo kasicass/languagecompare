@@ -1,0 +1,2 @@
+md5.exe -s "str_to_md5"
+md5.exe <filename>
