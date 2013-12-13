@@ -229,7 +229,7 @@ BOOL ConnectToNewClient(HANDLE hPipe, OVERLAPPED* oConnect)
 	// If an error occurs during the connect operation...
 	default:
 		printf("ConnectNamedPipe failed with %d.\n", GetLastError());
-		return 0;
+		return FALSE;
 	}
 
 	return pendingIO;
