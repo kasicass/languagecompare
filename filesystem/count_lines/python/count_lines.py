@@ -10,6 +10,7 @@ DEFAULT_EXTS = ('.h', '.hpp', '.cpp')
 flagDetails  = False
 
 def fileLines(fname):
+	i = 0 # empty file
 	with open(fname) as f:
 		for i, l in enumerate(f):
 			pass
