@@ -25,7 +25,7 @@
             </Grid>
             <ProgressBar Grid.Row="2" Margin="1" x:Name="pbarFile" />
             <Border Grid.Row="3" BorderThickness="3" BorderBrush="Bisque">
-                <TextBlock x:Name="txtResult"></TextBlock>
+                <TextBox AllowDrop="True" PreviewDragEnter="TextBox_DragEnter" PreviewDrop="TextBox_Drop" x:Name="txtResult"></TextBox>
             </Border>
             <Button Grid.Row="4" x:Name="btnQuit" HorizontalAlignment="Right" Width="100" Click="btnQuit_Click">Quit</Button>
         </Grid>

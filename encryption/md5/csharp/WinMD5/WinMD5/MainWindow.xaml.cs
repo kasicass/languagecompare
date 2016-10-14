@@ -30,7 +30,7 @@ namespace WinMD5
             string file = (string)e.Argument;
 
             MD5 m = MD5.Create();
-            using (var fs = new FileStream(file, FileMode.Open))
+            using (var fs = new FileStream(file, FileMode.Open, FileAccess.Read))
             {
                 byte[] hashValue = m.ComputeHash(fs);
                 e.Result = BytesToHexString(hashValue) + "    " + Path.GetFileName(file);
@@ -54,7 +54,7 @@ namespace WinMD5
             else
             {
                 string md5hex = (string)e.Result;
-                this.txtResult.Text = md5hex;
+                this.txtResult.AppendText(md5hex + "\n");
             }
         }
 
@@ -83,6 +83,16 @@ namespace WinMD5
 
                 _worker.RunWorkerAsync(files[0]);
             }
+        }
+
+        private void TextBox_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TextBox_Drop(object sender, DragEventArgs e)
+        {
+            Window_Drop(sender, e);
         }
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
