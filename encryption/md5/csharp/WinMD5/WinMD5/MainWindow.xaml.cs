@@ -87,6 +87,7 @@ namespace WinMD5
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.Shutdown();
         }
     }
 }
