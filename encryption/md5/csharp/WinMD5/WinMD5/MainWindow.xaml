@@ -23,7 +23,7 @@
                     <TextBlock x:Name="txtCurrent" VerticalAlignment="Center"></TextBlock>
                 </Border>
             </Grid>
-            <ProgressBar Grid.Row="2" Margin="1" x:Name="pbarFile" />
+            <ProgressBar Grid.Row="2" Margin="1" x:Name="pbarFile" Minimum="0" Maximum="100" />
             <Border Grid.Row="3" BorderThickness="3" BorderBrush="Bisque">
                 <TextBox AllowDrop="True" PreviewDragEnter="TextBox_DragEnter" PreviewDrop="TextBox_Drop" x:Name="txtResult"></TextBox>
             </Border>

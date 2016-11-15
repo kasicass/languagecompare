@@ -30,7 +30,7 @@ namespace WinMD5
             string file = (string)e.Argument;
 
             MD5 m = MD5.Create();
-            using (var fs = new FileStream(file, FileMode.Open, FileAccess.Read))
+            using (var fs = new MD5ProgressReport(new FileStream(file, FileMode.Open, FileAccess.Read), bw))
             {
                 byte[] hashValue = m.ComputeHash(fs);
                 e.Result = BytesToHexString(hashValue) + "    " + Path.GetFileName(file);
@@ -39,6 +39,7 @@ namespace WinMD5
 
         public void ComputeMD5_ReportProgress(object sender, ProgressChangedEventArgs e)
         {
+            this.pbarFile.Value = e.ProgressPercentage;
         }
 
         public void ComputeMD5_Completed(object sender, RunWorkerCompletedEventArgs e)
